@@ -7,10 +7,11 @@ import (
 	"os"
 	"strings"
 
+	"time"
+
 	"github.com/davecgh/go-spew/spew"
 	"github.com/decred/politeia/politeiawww/api/v1"
 	"github.com/decred/politeia/util"
-	"time"
 )
 
 var (

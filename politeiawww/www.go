@@ -680,7 +680,7 @@ func (p *politeiawww) handleNewComment(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	cr, err := p.backend.ProcessComment(sc, user)
+	cr, err := p.backend.ProcessComment(sc.Comment, user)
 	if err != nil {
 		RespondWithError(w, r, 0,
 			"handleNewComment: ProcessComment %v", err)
@@ -694,15 +694,15 @@ func (p *politeiawww) handleNewComment(w http.ResponseWriter, r *http.Request) {
 func (p *politeiawww) handleCommentsGet(w http.ResponseWriter, r *http.Request) {
 	log.Tracef("handleCommentsGet")
 
-	pathParams := mux.Vars(r)
-	gcr, err := p.backend.ProcessCommentGet(pathParams["token"])
-	if err != nil {
-		RespondWithError(w, r, 0,
-			"handleCommentsGet: ProcessCommentGet %v", err)
-		return
-	}
+	//pathParams := mux.Vars(r)
+	//gcr, err := p.backend.ProcessCommentGet(pathParams["token"])
+	//if err != nil {
+	//	RespondWithError(w, r, 0,
+	//		"handleCommentsGet: ProcessCommentGet %v", err)
+	//	return
+	//}
 
-	util.RespondWithJSON(w, http.StatusOK, gcr)
+	//util.RespondWithJSON(w, http.StatusOK, gcr)
 }
 
 // handleVerifyUserPaymentTx checks whether the provided transaction
